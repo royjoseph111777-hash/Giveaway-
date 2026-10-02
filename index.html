@@ -191,3 +191,80 @@ footer {
 
   <p>
     Enter
+</p>
+</section>
+
+<style>
+.prizes {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.prize-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.prize-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.prize-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.prize-card h2 {
+  margin: 10px 0;
+  color: #111827;
+}
+
+.prize-card p {
+  color: #4b5563;
+}
+
+.enter-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: #111827;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+
+<section class="prizes">
+  <h2 style="text-align:center;">Featured Prizes</h2>
+
+  <div class="prize-grid">
+
+    <div class="prize-card">
+      <img src="IMG_2977.jpeg" alt="$1,000,000 cash prize">
+      <h2>$1,000,000 Cash Prize</h2>
+      <p>Grand cash prize.</p>
+    </div>
+
+    <div class="prize-card">
+      <img src="IMG_2978.jpeg" alt="Prize vehicle">
+      <h2>Brand-New Car</h2>
+      <p>A vehicle prize for the selected winner.</p>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
