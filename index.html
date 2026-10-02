@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Giveaway Hub</title>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -253,6 +255,7 @@ footer {
 
   <section class="entry-section">
     <h2>Enter Now</h2>
+
     <p style="text-align:center;">
       Complete the form below to submit your entry.
     </p>
@@ -260,6 +263,7 @@ footer {
     <form id="entryForm">
 
       <label for="name">Full Name</label>
+
       <input
         type="text"
         id="name"
@@ -269,6 +273,7 @@ footer {
       >
 
       <label for="email">Email Address</label>
+
       <input
         type="email"
         id="email"
@@ -278,6 +283,7 @@ footer {
       >
 
       <label for="phone">Phone Number</label>
+
       <input
         type="tel"
         id="phone"
@@ -292,8 +298,6 @@ footer {
 
       <div id="confirmation" class="confirmation">
         Your entry has been submitted successfully.
-        Please keep your contact information available for any official
-        winner notification.
       </div>
 
     </form>
@@ -305,17 +309,11 @@ footer {
     <ul>
       <li>One entry per person unless the official rules state otherwise.</li>
       <li>Entrants must provide accurate contact information.</li>
-      <li>No payment is required to submit a demo entry.</li>
+      <li>No payment is required to submit an entry.</li>
       <li>Winners should only be contacted through the official giveaway channels.</li>
       <li>Prize eligibility and delivery are subject to the official rules.</li>
       <li>Do not send passwords, banking PINs, or payment information through this form.</li>
     </ul>
-
-    <p>
-      <strong>Important:</strong> This website's form is currently a demo
-      and does not store submissions until a secure form service or backend
-      is connected.
-    </p>
   </section>
 
 </main>
@@ -325,29 +323,38 @@ footer {
 </footer>
 
 <script>
+
 const endDate = new Date("2026-12-31T23:59:59").getTime();
 
 function updateCountdown() {
+
   const now = new Date().getTime();
   const distance = endDate - now;
 
   if (distance <= 0) {
+
     document.getElementById("days").textContent = "0";
     document.getElementById("hours").textContent = "0";
     document.getElementById("minutes").textContent = "0";
     document.getElementById("seconds").textContent = "0";
+
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const days = Math.floor(
+    distance / (1000 * 60 * 60 * 24)
+  );
+
   const hours = Math.floor(
     (distance % (1000 * 60 * 60 * 24)) /
     (1000 * 60 * 60)
   );
+
   const minutes = Math.floor(
     (distance % (1000 * 60 * 60)) /
     (1000 * 60)
   );
+
   const seconds = Math.floor(
     (distance % (1000 * 60)) / 1000
   );
@@ -361,48 +368,100 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-const SUPABASE_URL = "https://bhpojsftzdorvvjyypth.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = sb_publishable_wmRdXtW2lpnk89ykvukdGA_YPT-eIWg
 
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
+/* SUPABASE */
+
+const SUPABASE_URL =
+  "https://bhpojsftzdorvvjyyptth.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wmRdXtW2lpnk89ykvukdGA_YPT-eIWg
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+
+/* ENTRY FORM */
+
+const entryForm =
+  document.getElementById("entryForm");
+
+entryForm.addEventListener(
+  "submit",
+  async function(event) {
+
+    event.preventDefault();
+
+    const button =
+      entryForm.querySelector(
+        'button[type="submit"]'
+      );
+
+    button.disabled = true;
+    button.textContent = "Submitting...";
+
+    const full_name =
+      document.getElementById("name")
+        .value.trim();
+
+    const email =
+      document.getElementById("email")
+        .value.trim();
+
+    const phone =
+      document.getElementById("phone")
+        .value.trim();
+
+    try {
+
+      const { error } =
+        await supabaseClient
+          .from("entries")
+          .insert({
+            full_name: full_name,
+            email: email,
+            phone: phone
+          });
+
+      if (error) {
+        console.error(error);
+
+        alert(
+          "We couldn't submit your entry. Please try again."
+        );
+
+        button.disabled = false;
+        button.textContent = "Enter Now";
+
+        return;
+      }
+
+      document.getElementById(
+        "confirmation"
+      ).style.display = "block";
+
+      entryForm.reset();
+
+      button.disabled = false;
+      button.textContent = "Enter Now";
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(
+        "Something went wrong. Please try again."
+      );
+
+      button.disabled = false;
+      button.textContent = "Enter Now";
+    }
+
+  }
 );
 
-document.getElementById("entryform").addEventListener("submit", async function(event) {
-  e.preventDefault();
-
-  const button = this.querySelector('button[type="submit"]');
-  button.disabled = true;
-  button.textContent = "Submitting...";
-
-  const full_name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-
-  const { error } = await supabaseClient
-    .from("entries")
-    .insert({
-      full_name: full_name,
-      email: email,
-      phone: phone
-    });
-
-  if (error) {
-    console.error(error);
-    alert("We couldn't submit your entry. Please try again.");
-    button.disabled = false;
-    button.textContent = "Enter Now";
-    return;
-  }
-
-  document.getElementById("confirmation").style.display = "block";
-
-  this.reset();
-
-  button.disabled = false;
-  button.textContent = "Enter Now";
-});
 </script>
 
 </body>
