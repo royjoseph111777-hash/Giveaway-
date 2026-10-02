@@ -1,219 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giveaway Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giveaway Hub</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+  line-height: 1.6;
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+header {
+  background: #111827;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
-    header h1 {
-      font-size: 32px;
-    }
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
 
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: white;
-    }
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
 
-    .hero h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 25px;
-    }
+.hero p {
+  font-size: 19px;
+  max-width: 650px;
+  margin: auto;
+}
 
-    .prizes {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 35px 20px;
-    }
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
 
-    .prize {
-      background: white;
-      padding: 30px;
-      width: 280px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
+.time {
+  background: rgba(255,255,255,0.18);
+  padding: 15px;
+  min-width: 75px;
+  border-radius: 10px;
+}
 
-    .prize h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
+.time strong {
+  display: block;
+  font-size: 25px;
+}
 
-    .form-section {
-      max-width: 500px;
-      margin: 20px auto 50px;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
+.prizes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
 
-    .form-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.prize {
+  background: white;
+  width: 290px;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+.prize-icon {
+  font-size: 50px;
+}
 
-    button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 15px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-    }
+.prize h2 {
+  margin: 10px 0;
+}
 
-    button:hover {
-      background: #1d4ed8;
-    }
+.form-box {
+  max-width: 520px;
+  margin: 10px auto 45px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
 
-    .rules {
-      max-width: 700px;
-      margin: 0 auto 50px;
-      padding: 20px;
-      text-align: center;
-    }
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: 1px solid #ccd3df;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
-    .notice {
-      font-size: 13px;
-      color: #666;
-      margin-top: 15px;
-      line-height: 1.5;
-    }
-  </style>
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.rules {
+  max-width: 750px;
+  margin: auto;
+  padding: 20px;
+}
+
+.rules h2 {
+  margin-bottom: 15px;
+}
+
+.rules p {
+  margin-bottom: 15px;
+}
+
+.notice {
+  background: #fff7ed;
+  border-left: 4px solid #f97316;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#success {
+  display: none;
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 25px;
+  background: #111827;
+  color: white;
+  text-align: center;
+}
+
+.small {
+  font-size: 13px;
+  opacity: .8;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🎁 Giveaway Hub</h1>
-  </header>
+<header>
+  <div class="logo">🎁 Giveaway Hub</div>
+</header>
 
-  <section class="hero">
-    <h2>Win $1 Million + A Car!</h2>
-    <p>Enter the Giveaway Hub promotion for your chance to win.</p>
-  </section>
+<section class="hero">
+  <h1>Win $1 Million + A Car!</h1>
 
-  <section class="prizes">
-    <div class="prize">
-      <h3>💰 $1,000,000</h3>
-      <p>Cash prize</p>
-    </div>
-
-    <div class="prize">
-      <h3>🚗 Brand-New Car</h3>
-      <p>Vehicle prize</p>
-    </div>
-  </section>
-
-  <section class="form-section">
-    <h2>Enter the Giveaway</h2>
-
-    <form onsubmit="submitEntry(event)">
-      <input
-        type="text"
-        id="name"
-        placeholder="Full name"
-        required
-      >
-
-      <input
-        type="email"
-        id="email"
-        placeholder="Email address"
-        required
-      >
-
-      <input
-        type="tel"
-        id="phone"
-        placeholder="Phone number"
-        required
-      >
-
-      <button type="submit">Enter Giveaway</button>
-    </form>
-
-    <p class="notice">
-      Your information should only be collected and used for the purposes
-      clearly explained in the official giveaway rules and privacy notice.
-      Never ask entrants to pay money to enter.
-    </p>
-  </section>
-
-  <section class="rules">
-    <h2>Giveaway Rules</h2>
-    <br>
-    <p>
-      No purchase is necessary to enter. Eligibility, entry period,
-      winner selection, prize details, and other conditions must be
-      provided in the official rules before the giveaway is launched.
-    </p>
-  </section>
-
-  <footer>
-    <p>©️ 2026 Giveaway Hub</p>
-  </footer>
-
-  <script>
-    function submitEntry(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("name").value;
-
-      alert(
-        "Thank you, " + name +
-        "! Your entry has been received."
-      );
-    }
-  </script>
-
-</body>
-</html>
+  <p>
+    Enter
