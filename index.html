@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Giveaway Hub</title>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 * {
   box-sizing: border-box;
@@ -361,12 +361,47 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-document.getElementById("entryForm").addEventListener("submit", function(event) {
+const SUPABASE_URL = "https://bhpojsftzdorvvjyypth.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = sb_publishable_wmRdXtW2lpnk89ykvukdGA_YPT-eIWg
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+document.getElementById("entry-form").addEventListener("submit", async function(event) {
   event.preventDefault();
+
+  const button = this.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = "Submitting...";
+
+  const full_name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  const { error } = await supabaseClient
+    .from("entries")
+    .insert({
+      full_name: full_name,
+      email: email,
+      phone: phone
+    });
+
+  if (error) {
+    console.error(error);
+    alert("We couldn't submit your entry. Please try again.");
+    button.disabled = false;
+    button.textContent = "Enter Now";
+    return;
+  }
 
   document.getElementById("confirmation").style.display = "block";
 
   this.reset();
+
+  button.disabled = false;
+  button.textContent = "Enter Now";
 });
 </script>
 
