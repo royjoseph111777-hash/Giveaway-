@@ -8,11 +8,10 @@
 <style>
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f7fb;
   color: #172033;
@@ -22,183 +21,60 @@ body {
 header {
   background: #111827;
   color: white;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .hero {
-  padding: 60px 20px;
-  text-align: center;
+  background: #111827;
   color: white;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  text-align: center;
+  padding: 45px 20px;
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
+  font-size: 38px;
+  margin: 0 0 12px;
 }
 
 .hero p {
-  font-size: 19px;
-  max-width: 650px;
-  margin: auto;
+  font-size: 18px;
 }
 
 .countdown {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
   flex-wrap: wrap;
+  margin: 25px auto;
 }
 
-.time {
-  background: rgba(255,255,255,0.18);
-  padding: 15px;
+.time-box {
+  background: white;
+  color: #111827;
+  border-radius: 12px;
+  padding: 12px;
   min-width: 75px;
-  border-radius: 10px;
 }
 
-.time strong {
+.time-box strong {
   display: block;
   font-size: 25px;
 }
 
-.prizes {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 40px 20px;
+.time-box span {
+  font-size: 12px;
 }
 
-.prize {
-  background: white;
-  width: 290px;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,.08);
-}
-
-.prize-icon {
-  font-size: 50px;
-}
-
-.prize h2 {
-  margin: 10px 0;
-}
-
-.form-box {
-  max-width: 520px;
-  margin: 10px auto 45px;
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.08);
-}
-
-.form-box h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-input {
-  width: 100%;
-  padding: 14px;
-  margin: 8px 0;
-  border: 1px solid #ccd3df;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 12px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
-  font-size: 17px;
-  font-weight: bold;
-}
-
-button:hover {
-  background: #1d4ed8;
-}
-
-.rules {
-  max-width: 750px;
-  margin: auto;
-  padding: 20px;
-}
-
-.rules h2 {
-  margin-bottom: 15px;
-}
-
-.rules p {
-  margin-bottom: 15px;
-}
-
-.notice {
-  background: #fff7ed;
-  border-left: 4px solid #f97316;
-  padding: 15px;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-#success {
-  display: none;
-  background: #ecfdf5;
-  color: #065f46;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 15px;
-  text-align: center;
-}
-
-footer {
-  margin-top: 40px;
-  padding: 25px;
-  background: #111827;
-  color: white;
-  text-align: center;
-}
-
-.small {
-  font-size: 13px;
-  opacity: .8;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">🎁 Giveaway Hub</div>
-</header>
-
-<section class="hero">
-  <h1>Win $1 Million + A Car!</h1>
-
-  <p>
-    Enter
-</p>
-</section>
-
-<style>
-.prizes {
+.container {
   max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: auto;
+  padding: 25px 16px;
 }
 
 .prize-grid {
@@ -212,7 +88,7 @@ footer {
   border-radius: 18px;
   padding: 18px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.10);
   overflow: hidden;
 }
 
@@ -221,32 +97,142 @@ footer {
   height: 230px;
   object-fit: cover;
   border-radius: 14px;
-  display: block;
-  margin-bottom: 15px;
 }
 
 .prize-card h2 {
-  margin: 10px 0;
-  color: #111827;
+  margin: 15px 0 5px;
 }
 
 .prize-card p {
   color: #4b5563;
 }
 
-.enter-button {
-  display: inline-block;
+.entry-section,
+.rules {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.entry-section h2,
+.rules h2 {
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+}
+
+label {
+  display: block;
   margin-top: 15px;
-  padding: 12px 24px;
-  background: #111827;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
   font-weight: bold;
 }
-</style>
 
-<section class="prizes">
+input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 7px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.enter-button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.enter-button:hover {
+  opacity: 0.9;
+}
+
+.confirmation {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #dcfce7;
+  color: #166534;
+  text-align: center;
+  font-weight: bold;
+}
+
+footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 29px;
+  }
+
+  .hero {
+    padding: 35px 15px;
+  }
+
+  .prize-card img {
+    height: 210px;
+  }
+
+  .entry-section,
+  .rules {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎁 Giveaway Hub</div>
+</header>
+
+<section class="hero">
+  <h1>Win $1 Million + A Car!</h1>
+  <p>Enter before the countdown reaches zero.</p>
+
+  <div class="countdown">
+    <div class="time-box">
+      <strong id="days">0</strong>
+      <span>Days</span>
+    </div>
+
+    <div class="time-box">
+      <strong id="hours">0</strong>
+      <span>Hours</span>
+    </div>
+
+    <div class="time-box">
+      <strong id="minutes">0</strong>
+      <span>Minutes</span>
+    </div>
+
+    <div class="time-box">
+      <strong id="seconds">0</strong>
+      <span>Seconds</span>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
   <h2 style="text-align:center;">Featured Prizes</h2>
 
   <div class="prize-grid">
@@ -260,11 +246,129 @@ footer {
     <div class="prize-card">
       <img src="IMG_2978.jpeg" alt="Prize vehicle">
       <h2>Brand-New Car</h2>
-      <p>A vehicle prize for the selected winner.</p>
+      <p>Vehicle prize for the selected winner.</p>
     </div>
 
   </div>
-</section>
+
+  <section class="entry-section">
+    <h2>Enter Now</h2>
+    <p style="text-align:center;">
+      Complete the form below to submit your entry.
+    </p>
+
+    <form id="entryForm">
+
+      <label for="name">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your full name"
+        required
+      >
+
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label for="phone">Phone Number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Enter your phone number"
+        required
+      >
+
+      <button type="submit" class="enter-button">
+        Enter Now
+      </button>
+
+      <div id="confirmation" class="confirmation">
+        Your entry has been submitted successfully.
+        Please keep your contact information available for any official
+        winner notification.
+      </div>
+
+    </form>
+  </section>
+
+  <section class="rules">
+    <h2>Prize Details & Rules</h2>
+
+    <ul>
+      <li>One entry per person unless the official rules state otherwise.</li>
+      <li>Entrants must provide accurate contact information.</li>
+      <li>No payment is required to submit a demo entry.</li>
+      <li>Winners should only be contacted through the official giveaway channels.</li>
+      <li>Prize eligibility and delivery are subject to the official rules.</li>
+      <li>Do not send passwords, banking PINs, or payment information through this form.</li>
+    </ul>
+
+    <p>
+      <strong>Important:</strong> This website's form is currently a demo
+      and does not store submissions until a secure form service or backend
+      is connected.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  ©️ 2026 Giveaway Hub
+</footer>
+
+<script>
+const endDate = new Date("2026-12-31T23:59:59").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = endDate - now;
+
+  if (distance <= 0) {
+    document.getElementById("days").textContent = "0";
+    document.getElementById("hours").textContent = "0";
+    document.getElementById("minutes").textContent = "0";
+    document.getElementById("seconds").textContent = "0";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) /
+    (1000 * 60 * 60)
+  );
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60)) /
+    (1000 * 60)
+  );
+  const seconds = Math.floor(
+    (distance % (1000 * 60)) / 1000
+  );
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+document.getElementById("entryForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  document.getElementById("confirmation").style.display = "block";
+
+  this.reset();
+});
+</script>
 
 </body>
 </html>
