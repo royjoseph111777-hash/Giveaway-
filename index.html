@@ -370,7 +370,7 @@ const supabaseClient = window.supabase.createClient(
 );
 
 document.getElementById("entry-form").addEventListener("submit", async function(event) {
-  event.preventDefault();
+  e.preventDefault();
 
   const button = this.querySelector('button[type="submit"]');
   button.disabled = true;
